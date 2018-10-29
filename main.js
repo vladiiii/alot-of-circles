@@ -1,18 +1,21 @@
 
-var particle;
+var canvas;
 
+var particles = [];
 
 function setup(){
   createCanvas(1200,600);
-
-  particle = new Particle(15, 600, 300);
+  for(var i = 0; i < 300; i++){
+    particles[i] = new Particle(15, random(1200), random(600));
+  }
 }
 
 function draw(){
   background(0);
-
-  particle.update();
-  particle.display();
+  for(var i = 0; i < particles.length; i++){
+  particles[i].update();
+  particles[i].display();
+}
 }
 
 function mousePressed(){
@@ -33,12 +36,12 @@ function Particle(size, x, y){
 
     if(mouseIsPressed){
       this.acc = p5.Vector.sub(mouse, this.pos);
-      this.acc.setMag(0.09);
+      this.acc.setMag(0.06);
     }
 
       this.vel.add(this.acc);
       this.pos.add(this.vel);
-      this.vel.mult(0.99);
+      this.vel.mult(0.95);
 
       if(this.pos.y > height){
         this.vel.y *= -1;
@@ -58,8 +61,8 @@ function Particle(size, x, y){
 
   }
   this.display = function(){
-    stroke(255);
-    strokeWeight(2);
-    ellipse(this.pos.x, this.pos.y, this.size, this.size);
+    fill(102, 0, 153);
+    noStroke();
+    ellipse(this.pos.x, this.pos.y, this.size * 2, this.size * 2);
   }
 }
