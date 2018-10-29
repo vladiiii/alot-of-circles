@@ -1,4 +1,5 @@
 body{
+  height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -8,7 +9,12 @@ body{
 }
 
 h1{
+  color: white;
   font-size: 4rem;
   font-family: Chava;
   margin: 5px 0;
+}
+h2{
+  color: white;
+  font-family: Chava;
 }

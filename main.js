@@ -3,10 +3,17 @@ var canvas;
 
 var particles = [];
 
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 function setup(){
-  createCanvas(1200,600);
-  for(var i = 0; i < 300; i++){
-    particles[i] = new Particle(15, random(1200), random(600));
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.position(0, 0);
+  canvas.style('z-index', '-1');
+
+  for(var i = 0; i < 1000; i++){
+    particles[i] = new Particle(15, random(windowWidth), random(windowHeight));
   }
 }
 
@@ -16,10 +23,6 @@ function draw(){
   particles[i].update();
   particles[i].display();
 }
-}
-
-function mousePressed(){
-  background(0);
 }
 
 function Particle(size, x, y){
