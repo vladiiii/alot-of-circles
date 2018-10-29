@@ -1,0 +1,14 @@
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  font-size: 4rem;
+  font-family: Chava;
+  margin: 5px 0;
+}
